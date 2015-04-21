@@ -165,8 +165,8 @@ DEPENDENCIES
   bootstrap-sass (~> 3.1.1)
   byebug
   coffee-rails (~> 4.1.0)
-  fullcalendar-rails
   devise
+  fullcalendar-rails
   jbuilder (~> 2.0)
   jquery-rails
   momentjs-rails
