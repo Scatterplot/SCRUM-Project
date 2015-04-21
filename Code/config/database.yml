@@ -9,17 +9,11 @@ default: &default
   encoding: unicode
   database: westminster_schedule
   pool: 5
-  username: cheryl
-  password:
   timeout: 5000
 
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: westminster_schedule
-  pool: 5
-  username: cheryl
-  password:
+  <<: *default
+  database: westminster_schedule_dev
 
 
 # Warning: The database defined as "test" will be erased and
@@ -27,8 +21,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: westminster_schedule
 
 production:
   <<: *default
-  database: westminster_schedule
+  database: westminster_schedule_prod
+
