@@ -28,10 +28,10 @@ function initialise_event_generation(){
 		var background_color = $('#txt_background_color').val();
 		var border_color = $('#txt_border_color').val();
 		var text_color = $('#txt_text_color').val();
-		var title = $('#txt_title').val();
-		var description = $('#txt_description').val();
-		var price = $('#txt_price').val(); 
-		var available = $('#txt_available').val();
+		var title = $('#volunteerName').val();
+		var description = $('#jobTitle').val();
+		var price = $('#startTime').val(); 
+		var available = $('#endTime').val();
 
 		//Edit id
 		$(template_event).attr('id', get_uni_id());
@@ -109,20 +109,18 @@ function initialise_calendar(){
 
 	//Initialise calendar
 	$('#calendar').fullCalendar({
-		theme: true,
+		theme: false,
 		firstDay: 1,
 		header: {
 			left: 'today prev,next',
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay'
 		},
-		defaultView: 'agendaWeek',
-		minTime: '6:00am',
-		maxTime: '6:00pm',
+		defaultView: 'month',
 		allDaySlot: false,
 		columnFormat: {
-			month: 'ddd',
-			week: 'ddd dd/MM',
+			month: 'dddd',
+			week: 'ddd M/d',
 			day: 'dddd M/d'
 		},
 		eventSources: [
@@ -198,10 +196,10 @@ function set_event_generation_values(event_id, bg_color, border_color, text_colo
 	$('#txt_background_color').miniColors('value', bg_color);
 	$('#txt_border_color').miniColors('value', border_color);
 	$('#txt_text_color').miniColors('value', text_color);
-	$('#txt_title').val(title);
-	$('#txt_description').val(description);
-	$('#txt_price').val(price);
-	$('#txt_available').val(available);
+	$('#volunteerName').val(title);
+	$('#jobTitle').val(description);
+	$('#startTime').val(price);
+	$('#endTime').val(available);
 	$('#txt_current_event').val(event_id);
 }
 
@@ -239,10 +237,10 @@ function initialise_update_event(){
 				current_event.backgroundColor = $('#txt_background_color').val();
 				current_event.textColor = $('#txt_text_color').val();
 				current_event.borderColor = $('#txt_border_color').val();
-				current_event.title = $('#txt_title').val();
-				current_event.description = $('#txt_description').val();
-				current_event.price = $('#txt_price').val();
-				current_event.available = $('#txt_available').val();
+				current_event.title = $('#volunteerName').val();
+				current_event.description = $('#jobTitle').val();
+				current_event.price = $('#startTime').val();
+				current_event.available = $('#endTime').val();
 
 				//Update event
 				$('#calendar').fullCalendar('updateEvent', current_event);

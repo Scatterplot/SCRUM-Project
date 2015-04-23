@@ -18,12 +18,19 @@
         </div>
             <!-- Event generation -->
             <div id="event_generation_wrapper">
-                <input id='txt_title' type='text' value='Title'/><br/>
-                <textarea id='txt_description'>Description</textarea><br/>
-                <input id='txt_price' type='text' value='5.00'/><br/>
-                <input id='txt_available' type='text' value='5'/><br/>
-                <input id="btn_gen_event" type="button" value="New Template" class='btn'/>
+                <h3>Shift Manager</h3>
+                <input id='volunteerName' type='text' value='Volunteer Name'/><br/>
+                <input id='jobTitle' type='text' value='Position'/><br/>
+                <text>Date:</text>
+                <input id='shiftDate' type='text' style="width: 80px" value='mm/dd/yyyy'/><br/>
+                <input id='startTime' type='text' style="width: 44px" value='0:00'/>
+                <text>to</text>
+                <input id='endTime' type='text' style="width: 44px" value='0:00'/><br/><br/>
+                <text>Notes:</text>
+                <textarea id='scheduleNotes'/></textarea>
+                <input id="btn_gen_event" type="button" value="Create Event" class='btn'/>
                 <input id="btn_update_event" type="button" value="Update Event" class='btn'/>
+                <input id="btn_delete_event" type="button" value="Delete Event" style="background-color:#CC0028" class='btn'/>
                 <input id="txt_current_event" type="hidden" value=""/>
                 
                 <!-- Booking types list -->

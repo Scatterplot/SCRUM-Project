@@ -17,6 +17,7 @@ body{
 .btn{
 	font-size: 85%
 	margin-top: 10px;
+    margin-left: 4px;
 }
 
 #event_generation_wrapper{
@@ -30,7 +31,7 @@ body{
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	padding: 10px 5px 10px 5px;
+	padding: 0px 5px 10px 5px;
 }
 
 #event_generation_wrapper input{
@@ -38,8 +39,9 @@ body{
 }
 
 #event_generation_wrapper textarea{
-	width: 110px;	
+	width: 110px;
 	height: 50px;
+    margin-left: 2px;
 }
 
 #event_generation_wrapper .miniColors-triggerWrap{	
