@@ -32,6 +32,7 @@ function initialise_event_generation(){
 		var description = $('#jobTitle').val();
 		var price = $('#startTime').val(); 
 		var available = $('#endTime').val();
+                             var notes = $('#scheduleNotes').val();
 
 		//Edit id
 		$(template_event).attr('id', get_uni_id());
@@ -44,6 +45,7 @@ function initialise_event_generation(){
 		$(template_event).attr('data-description', description);
 		$(template_event).attr('data-price', price);
 		$(template_event).attr('data-available', available);
+                             $(template_event).attr('data-notes', notes);
 
 		//Style external event
 		$(template_event).css('background-color', background_color);
@@ -185,21 +187,22 @@ function external_event_dropped(date, all_day, external_event){
 function calendar_event_clicked(cal_event, js_event, view){
 
 	//Set generation values
-	set_event_generation_values(cal_event.id, cal_event.backgroundColor, cal_event.borderColor, cal_event.textColor, cal_event.title, cal_event.description, cal_event.price, cal_event.available);
+	set_event_generation_values(cal_event.id, cal_event.backgroundColor, cal_event.borderColor, cal_event.textColor, cal_event.title, cal_event.description, cal_event.price, cal_event.available, cal_event.notes);
 }
 
 
 /* Set event generation values */
-function set_event_generation_values(event_id, bg_color, border_color, text_color, title, description, price, available){
+function set_event_generation_values(event_id, bg_color, border_color, text_color, volunteerName, jobTitle, startTime, endTime, notes){
 
 	//Set values
 	$('#txt_background_color').miniColors('value', bg_color);
 	$('#txt_border_color').miniColors('value', border_color);
 	$('#txt_text_color').miniColors('value', text_color);
-	$('#volunteerName').val(title);
-	$('#jobTitle').val(description);
-	$('#startTime').val(price);
-	$('#endTime').val(available);
+	$('#volunteerName').val(volunteerName);
+	$('#jobTitle').val(jobTitle);
+	$('#startTime').val(startTime);
+	$('#endTime').val(endTime);
+            $('#scheduleNotes').val(notes);
 	$('#txt_current_event').val(event_id);
 }
 
@@ -241,6 +244,7 @@ function initialise_update_event(){
 				current_event.description = $('#jobTitle').val();
 				current_event.price = $('#startTime').val();
 				current_event.available = $('#endTime').val();
+                                current_event.notes = $('#scheduleNotes').val();
 
 				//Update event
 				$('#calendar').fullCalendar('updateEvent', current_event);
