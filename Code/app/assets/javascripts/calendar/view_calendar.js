@@ -28,11 +28,12 @@ function initialise_event_generation(){
 		var background_color = $('#txt_background_color').val();
 		var border_color = $('#txt_border_color').val();
 		var text_color = $('#txt_text_color').val();
-		var title = $('#volunteerName').val();
-		var description = $('#jobTitle').val();
-		var price = $('#startTime').val(); 
-		var available = $('#endTime').val();
-                             var notes = $('#scheduleNotes').val();
+		var volunteerName = $('#volunteerName').val();
+		var jobTitle = $('#jobTitle').val();
+		var startTime = $('#startTime').val();
+		var endTime = $('#endTime').val();
+        var scheduleNotes = $('#scheduleNotes').val();
+        var shiftDate = $('#shiftDate').val();
 
 		//Edit id
 		$(template_event).attr('id', get_uni_id());
@@ -41,11 +42,12 @@ function initialise_event_generation(){
 		$(template_event).attr('data-background', background_color);
 		$(template_event).attr('data-border', border_color);
 		$(template_event).attr('data-text', text_color);
-		$(template_event).attr('data-title', title);
-		$(template_event).attr('data-description', description);
-		$(template_event).attr('data-price', price);
-		$(template_event).attr('data-available', available);
-                             $(template_event).attr('data-notes', notes);
+		$(template_event).attr('data-volunteerName', volunteerName);
+		$(template_event).attr('data-jobTitle', jobTitle);
+        $(template_event).attr('data-shiftDate', shiftDate);
+		$(template_event).attr('data-startTime', startTime);
+		$(template_event).attr('data-endTime', endTime);
+        $(template_event).attr('data-scheduleNotes', scheduleNotes);
 
 		//Style external event
 		$(template_event).css('background-color', background_color);
@@ -53,23 +55,32 @@ function initialise_event_generation(){
 		$(template_event).css('color', text_color);
 
 		//Set text of external event
-		$(template_event).text(title);
+		$(template_event).text(volunteerName);
 
 		//Append to external events container
 		$('#external_events').append(template_event);
-
+        
 		//Initialise external event
 		initialise_external_event('#' + $(template_event).attr('id'));
 
 		//Show
 		$(template_event).fadeIn(2000);
+        var dateBreak = shiftDate.split("/");
+        var timeBreak = startTime.split(":");
+        dateBreak[0] = parseInt(dateBreak[0]);
+        dateBreak[1] = parseInt(dateBreak[1]);
+        dateBreak[2] = parseInt(dateBreak[2]);
+        dateBreak[3] = parseInt(timeBreak[0]);
+        dateBreak[4] = parseInt(timeBreak[1]);
+        alert("dateBreak[0] = "+dateBreak[0]+"\ndateBreak[1] = "+dateBreak[1]+"\ndateBreak[2] = "+dateBreak[2]+"\ndateBreak[3] = "+dateBreak[3]+"\ndateBreak[4] = "+dateBreak[4]);
+        external_event_dropped(new Date(dateBreak[2],dateBreak[0]-1,dateBreak[1],dateBreak[3],dateBreak[4]), false, $(template_event));
 	});
 }
 
 
 /* Initialise external events */
 function initialise_external_event(selector){
-
+    alert("Within initialise_external_event");
 	//Initialise booking types
 	$(selector).each(function(){
 
@@ -148,7 +159,7 @@ function initialise_calendar(){
 
 /* Handle an external event that has been dropped on the calendar */
 function external_event_dropped(date, all_day, external_event){
-
+    alert("Within external_event_dropped");
 	//Create vars
 	var event_object;
 	var copied_event_object;
@@ -173,10 +184,11 @@ function external_event_dropped(date, all_day, external_event){
 
 	//Assign text, price, etc
 	copied_event_object.id = get_uni_id();
-	copied_event_object.title = $(external_event).data('title');
-	copied_event_object.description = $(external_event).data('description');
-	copied_event_object.price = $(external_event).data('price');
-	copied_event_object.available = $(external_event).data('available');
+	copied_event_object.volunteerName = $(external_event).data('volunteerName');
+	copied_event_object.jobTitle = $(external_event).data('jobTitle');
+    copied_event_object.shiftDate = $(external_event).data('shiftDate');
+	copied_event_object.startTime = $(external_event).data('startTime');
+	copied_event_object.endTime = $(external_event).data('endTime');
 
 	//Render event on calendar
 	$('#calendar').fullCalendar('renderEvent', copied_event_object, true);
@@ -185,24 +197,26 @@ function external_event_dropped(date, all_day, external_event){
 
 /* Initialise event clicks */
 function calendar_event_clicked(cal_event, js_event, view){
-
+    alert("Within calendar_event_clicked");
 	//Set generation values
-	set_event_generation_values(cal_event.id, cal_event.backgroundColor, cal_event.borderColor, cal_event.textColor, cal_event.title, cal_event.description, cal_event.price, cal_event.available, cal_event.notes);
+	set_event_generation_values(cal_event.id, cal_event.backgroundColor, cal_event.borderColor, cal_event.textColor, cal_event.volunteerName, cal_event.jobTitle, cal_event.shiftDate, cal_event.startTime, cal_event.endTime, cal_event.scheduleNotes);
 }
 
 
 /* Set event generation values */
-function set_event_generation_values(event_id, bg_color, border_color, text_color, volunteerName, jobTitle, startTime, endTime, notes){
+function set_event_generation_values(event_id, bg_color, border_color, text_color, volunteerName, jobTitle, shiftDate, startTime, endTime, scheduleNotes){
 
+    alert("Within set_event_generation_values");
 	//Set values
 	$('#txt_background_color').miniColors('value', bg_color);
 	$('#txt_border_color').miniColors('value', border_color);
 	$('#txt_text_color').miniColors('value', text_color);
 	$('#volunteerName').val(volunteerName);
 	$('#jobTitle').val(jobTitle);
+	$('#shiftDate').val(shiftDate);
 	$('#startTime').val(startTime);
 	$('#endTime').val(endTime);
-            $('#scheduleNotes').val(notes);
+    $('#scheduleNotes').val(scheduleNotes);
 	$('#txt_current_event').val(event_id);
 }
 
@@ -217,7 +231,8 @@ function get_uni_id(){
 
 /* Initialise update event button */
 function initialise_update_event(){
-	var test = $('#calendar').fullCalendar( 'clientEvents');
+        alert("initialise_update_event");
+	var test = $('#calendar').fullCalendar('clientEvents');
 	//Bind event
 	$('#btn_update_event').bind('click', function(){
 
@@ -240,11 +255,12 @@ function initialise_update_event(){
 				current_event.backgroundColor = $('#txt_background_color').val();
 				current_event.textColor = $('#txt_text_color').val();
 				current_event.borderColor = $('#txt_border_color').val();
-				current_event.title = $('#volunteerName').val();
-				current_event.description = $('#jobTitle').val();
-				current_event.price = $('#startTime').val();
-				current_event.available = $('#endTime').val();
-                                current_event.notes = $('#scheduleNotes').val();
+				current_event.volunteerName = $('#volunteerName').val();
+				current_event.jobTitle = $('#jobTitle').val();
+				current_event.shiftDate = $('#shiftDate').val();
+				current_event.startTime = $('#startTime').val();
+				current_event.endTime = $('#endTime').val();
+                current_event.scheduleNotes = $('#scheduleNotes').val();
 
 				//Update event
 				$('#calendar').fullCalendar('updateEvent', current_event);
