@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :roles
   get 'calendar/main'
   get 'home/index'
+  get 'roles/new'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   
