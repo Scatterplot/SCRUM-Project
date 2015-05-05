@@ -3655,13 +3655,11 @@ function AgendaEventRenderer() {
 	
 
 	function renderEvents(events, modifiedEventId) {
-                     alert("Within renderEvents");
 		reportEvents(events);
 		var i, len=events.length,
 			dayEvents=[],
 			slotEvents=[];
 		for (i=0; i<len; i++) {
-                 alert("events[0]: allDay="+events[i].allDay);
 			if (events[i].allDay) {
 				dayEvents.push(events[i]);
 			}else{

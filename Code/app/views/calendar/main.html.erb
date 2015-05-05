@@ -34,11 +34,19 @@
                 <input id="txt_current_event" type="hidden" value=""/>
                 
                 <!-- Booking types list -->
-                <div id='external_events'>
-                    <div id='external_event_template' class='external-event ui-draggable'></div>
+                <div id='external_events' style="display:none">
+                    <div id='external_event_template'></div>
                 </div>
             </div>
         </div>
+
+        <script>
+            initialise_calendar();
+            initialise_color_pickers();
+            initialise_buttons();
+            initialise_event_generation();
+            initialise_update_event();
+        </script>
     </body>
 </html>
 
