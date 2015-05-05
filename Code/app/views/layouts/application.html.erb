@@ -17,6 +17,7 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
+        <% if user_signed_in? then %>
         <li><a href="/">Home</a></li>
         <li><a href="/calendar/main">Calendar</a></li>
         <li class="dropdown">
@@ -29,6 +30,7 @@
         </li>
         <li><a href="/users/edit">User Account</a></li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% end %>
       </ul>
     </div>
   </div>
