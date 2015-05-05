@@ -24,7 +24,7 @@ body{
 
 #event_generation_wrapper{
 	float: left;
-	width: 125px;
+	width: 134px;
 	background-color: #DDD;
 	margin-left: 20px;
 	margin-top: 40px;
@@ -37,12 +37,13 @@ body{
 }
 
 #event_generation_wrapper input{
-	width: 112px;
+	width: 121px;
+    font-size: 8pt;
     margin-left: 0px;
 }
 
 #event_generation_wrapper textarea{
-	width: 110px;
+	width: 117px;
 	height: 100px;
     margin-left: 2px;
     resize: vertical;
