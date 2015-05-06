@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150430015353) do
 
   create_table "shifts", force: :cascade do |t|
     t.date    "date"
+    t.time    "startTime"
+    t.time    "endTime"
     t.integer "user_id"
   end
 
