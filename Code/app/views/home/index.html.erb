@@ -1,6 +1,17 @@
 <h1>Welcome, <%= current_user.first_name %>!</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<br>
+<p>What would you like to do?</p>
+<br/>
+<p>
+  <a class="btn btn-default" href="/calendar/main">View Calendar</a></li>
+</p>
+<br/>
+<p>
+  <a class="btn btn-default" href="/users/edit">Update User Account</a></li>
+</p>
+<br/>
+Or click on navigation bar at top of the page.
+<br/>
+<br/>
 <% if user_signed_in? %>
 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
 <% end %>
