@@ -1,17 +1,16 @@
 <h1>Welcome, <%= current_user.first_name %>!</h1>
 <p>What would you like to do?</p>
-<br/>
-<p>
-  <a class="btn btn-default" href="/calendar/main">View Calendar</a></li>
-</p>
-<br/>
-<p>
-  <a class="btn btn-default" href="/users/edit">Update User Account</a></li>
-</p>
-<br/>
-Or click on navigation bar at top of the page.
-<br/>
-<br/>
-<% if user_signed_in? %>
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+<% if current_user.role_id == 1 then %>
+    <a class="btn btn-default" href="/calendar/main">View Calendar</a></li>
+<% else %>
+    <a class="btn btn-default" href="#">Update Availability</a></li>
 <% end %>
+<br/>
+<br/>
+<a class="btn btn-default" href="/users/edit">Update User Account</a></li>
+<br/>
+<br/>
+<a class="btn btn-default" <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></a>
+<br/>
+<br/>
+Or use the navigation bar at the top of the page.

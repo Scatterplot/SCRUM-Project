@@ -18,7 +18,6 @@
     <div>
       <ul class="nav navbar-nav">
         <% if user_signed_in? then %>
-        <li><a href="/">Home</a></li>
         <% if current_user.role_id == 1 then %>
             <li><a href="/calendar/main">Calendar</a></li>
             <li><a href="/users">Users</a></li>
