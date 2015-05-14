@@ -16,12 +16,6 @@ body{
 	float: left;
 }
 
-.btn{
-	font-size: 85%
-	margin-top: 10px;
-    margin-left: 4px;
-}
-
 #event_generation_wrapper{
 	float: left;
 	width: 134px;
