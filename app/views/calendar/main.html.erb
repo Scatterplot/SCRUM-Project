@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset='utf-8' />
+        <%= oboe_rum_header rescue "" %>
         <% content_for :title, "Calendar" %>
         <% stylesheet_link_tag "/calendar/jquery-ui-custom" %>
         <% stylesheet_link_tag "/calendar/fullcalendar" %>
@@ -47,6 +48,7 @@
             initialise_event_generation();
             initialise_update_event();
         </script>
+    <%= oboe_rum_footer rescue "" %>
     </body>
 </html>
 
