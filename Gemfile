@@ -3,7 +3,10 @@ source 'https://rubygems.org'
 ### Additions
 ###
 # Version Check
-raise 'Ruby version should be >2.2' unless RUBY_VERSION.to_f >= 2.2
+# raise 'Ruby version should be >2.2' unless RUBY_VERSION.to_f >= 2.2
+
+# Heroku runs Ruby 2.0 by default. We must specify the version exactly, the above will not work.
+ruby "2.2.0"
 
 # Authentication Gems
 gem 'devise'
