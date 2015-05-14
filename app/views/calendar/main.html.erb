@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <% content_for :title, "Calendar" %>
+        <% stylesheet_link_tag "/calendar/jquery-ui-custom" %>
+        <% stylesheet_link_tag "/calendar/fullcalendar" %>
+        <% stylesheet_link_tag "/calendar/view_calendar" %>
+        <% stylesheet_link_tag "/calendar/jquery.miniColors" %>
+        <% javascript_include_tag "/calendar/jquery-ui.min" %>
+        <% javascript_include_tag "/calendar/fullcalendar" %>
+        <% javascript_include_tag "/calendar/view_calendar" %>
+        <% javascript_include_tag "/calendar/jquery.miniColors" %>
+    </head>
+    <body>
+        <div id="content_wrapper">
+            <div id="calendar"></div>
+        </div>
+            <!-- Event generation -->
+            <div id="event_generation_wrapper">
+                <h3>Shift Manager</h3>
+                <input id='volunteerName' type='text' value='Volunteer Name'/><br/>
+                <input id='jobTitle' type='text' value='Position'/><br/>
+                <text>Date:</text>
+                <input id='shiftDate' type='text' style="width: 80px" maxlength="10" value='mm/dd/yyyy'/><br/>
+                <input id='startTime' type='text' style="width: 44px" value='0:00'/>
+                <text>to</text>
+                <input id='endTime' type='text' style="width: 44px" value='0:00'/><br/><br/>
+                <text>Notes:</text>
+                <textarea id='scheduleNotes'/></textarea>
+                <input id="btn_gen_event" type="button" value="Create Event" class='btn'/>
+                <input id="btn_update_event" type="button" value="Update Event" class='btn'/>
+                <input id="btn_delete_event" type="button" value="Delete Event" style="background-color:#CC0028" class='btn'/>
+                <input id="txt_current_event" type="hidden" value=""/>
+                
+                <!-- Booking types list -->
+                <div id='external_events' style="display:none">
+                    <div id='external_event_template'></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            initialise_calendar();
+            initialise_color_pickers();
+            initialise_buttons();
+            initialise_event_generation();
+            initialise_update_event();
+        </script>
+    </body>
+</html>
+

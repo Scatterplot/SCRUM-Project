@@ -1,0 +1,104 @@
+body{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+
+#content_wrapper{
+	width: 820px;
+    height: auto;
+	margin-left: 0px;
+	margin-right: auto;
+}
+
+#calendar{
+	width: auto;
+    height: auto;
+	float: left;
+}
+
+.btn{
+	font-size: 85%
+	margin-top: 10px;
+    margin-left: 4px;
+}
+
+#event_generation_wrapper{
+	float: left;
+	width: 134px;
+	background-color: #DDD;
+	margin-left: 20px;
+	margin-top: 40px;
+	border: 1px solid #4297D7;
+	background-color: #FCFDFD;	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding: 0px 5px 10px 5px;
+}
+
+#event_generation_wrapper input{
+	width: 121px;
+    font-size: 8pt;
+    margin-left: 0px;
+}
+
+#event_generation_wrapper textarea{
+	width: 117px;
+	height: 100px;
+    margin-left: 2px;
+    resize: vertical;
+}
+
+#event_generation_wrapper .miniColors-triggerWrap{	
+	margin-bottom: 5px;
+}
+
+#event_generation_wrapper .text{
+	padding-top: 1px;	
+	margin-bottom: 5px;
+	line-height: 10px;
+}
+
+
+#external_events{
+	float: left;
+	width: auto;
+	background-color: #DDD;
+	margin-left: auto;
+	margin-top: auto;
+	border: 0px solid #4297D7;
+	background-color: #FCFDFD;	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#external_events .external-event{
+	width: 100px;
+	margin: 5px;
+	font-family: Verdana, Arial, sans-serif;
+	border: 1px solid #36C;
+	padding: 3px;
+	text-align: center;
+	background-color: #36C;
+	color: white;
+	cursor: pointer;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#calendar .ui-widget-header{
+	font-weight: normal;
+	padding: 3px 3px 3px 3px;
+}
+
+#calendar .fc-header-title{
+	font-weight: normal;
+}
+
+#external_event_template{
+	display: none;
+}
+
+

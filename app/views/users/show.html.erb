@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<% @myrole = Role.find @user.role_id unless @user.role_id.nil?  %>
+
+  <h2>Showing User Information for <%= @user.email %></h2>
+  <br />
+  <p>
+    <table class="table table-bordered">
+      <tr><td><strong>Email: </strong></td><td><%= @user.email %></td></tr>
+      <tr><td><strong>Last Name: </strong></td><td><%= @user.last_name %></td></tr>
+      <tr><td><strong>First Name: </strong></td><td><%= @user.first_name %></td></tr>
+      <tr><td><strong>Role: </strong></td><td><%= @myrole.role unless @myrole.nil? %></td></tr>
+      <tr><td><strong>Phone: </strong></td><td><%= @user.phone %></td></tr>
+      <tr><td><strong>Last Login: </strong></td><td><%= @user.last_sign_in_at %></td></tr>
+    </table>
+  </p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
