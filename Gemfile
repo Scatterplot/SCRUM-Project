@@ -8,6 +8,9 @@ source 'https://rubygems.org'
 # Heroku runs Ruby 2.0 by default. We must specify the version exactly, the above will not work.
 ruby "2.2.2"
 
+# TraceView gem will allow performance monitoring
+gem 'oboe-heroku'
+
 # Authentication Gems
 gem 'devise'
 
